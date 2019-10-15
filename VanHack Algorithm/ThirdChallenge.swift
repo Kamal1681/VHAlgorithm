@@ -12,7 +12,7 @@ protocol StockProtocol {
     func openAndClosePrices(firstDate: String, lastDate: String, weekday: String) -> [Stock]
 }
 class Stock {
-    var stock = [StockPrice]()
+    
     func parseJSON() {
         if let path = Bundle.main.path(forResource: "data", ofType: "json") {
             do {
@@ -33,7 +33,7 @@ class Stock {
                     
                 }
             } catch let error {
-                print(error.localizedDescription)
+                print("Stock not found")
             }
             
         }
@@ -54,6 +54,7 @@ class StockPrice: StockProtocol{
         self.close = close
     }
     func openAndClosePrices(firstDate: String, lastDate: String, weekday: String) -> [Stock] {
-        <#code#>
+        var stockArray = [Stock]()
+        return stockArray
     }
 }
